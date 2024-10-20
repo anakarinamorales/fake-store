@@ -1,11 +1,8 @@
-'use client';
-
-import PageContainer from "components/pageContainer";
-import CTA from "components/cta";
+import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <PageContainer>
+    <main className={styles.mainContent}>
       <h1>Store Name</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -17,7 +14,7 @@ export default function Home() {
         mollit anim id est laborum.
       </p>
 
-      <CTA href='/products'>Check out Products</CTA>
-    </PageContainer>
+      <a className={styles.cta} href='/products'>Check out Products</a>
+    </main>
   );
 }
