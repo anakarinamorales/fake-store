@@ -1,7 +1,7 @@
 'use client';
 
-import PageContainer from "../components/pageContainer";
-import CTA from "@/components/cta";
+import PageContainer from "components/pageContainer";
+import CTA from "components/cta";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
         mollit anim id est laborum.
       </p>
 
-      <CTA href='#products'>Check out Products</CTA>
+      <CTA href='/products'>Check out Products</CTA>
     </PageContainer>
   );
 }
