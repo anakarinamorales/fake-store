@@ -8,7 +8,13 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo \"[Husky] pre-commit\" && yarn lint && git add -A ."
+    }
+  },
   "dependencies": {
+    "husky": "^9.1.6",
     "next": "14.2.15",
     "react": "^18",
     "react-dom": "^18",
