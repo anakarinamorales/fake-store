@@ -1,14 +1,26 @@
+/* Light Theme (default in :root) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background-color: #d2d2d2;
+  --foreground-color: #2e2e2e;
   --primary: #ff298c;
+  --text-color: var(--foreground-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Dark Theme */
+html.dark {
+  --background-color: #2e2e2e;
+  --foreground-color: #d2d2d2;
+  --text-color: var(--foreground-color);
+
+  color-scheme: dark;
+}
+
+html.light {
+  --background-color: #ffffff;
+  --foreground-color: #2e2e2e;
+  --text-color: var(--foreground-color);
+
+  color-scheme: light;
 }
 
 html,
@@ -18,13 +30,17 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 1.5;
+}
+
+main {
+  padding: 24px;
 }
 
 * {
@@ -38,13 +54,14 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+a,
+button {
+  cursor: pointer;
 }
 
-@media(min-width: 600px) {
+
+
+@media (min-width: 600px) {
   body {
     font-size: 22px;
   }

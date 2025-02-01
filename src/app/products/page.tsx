@@ -1,8 +1,8 @@
 import { Product } from './types';
-import cardStyles from './product.module.css';
+import cardStyles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from 'app/page.module.css';
+// import styles from 'app/page.module.css';
 
 const getData = async () => {
   const response = await fetch('https://fakestoreapi.com/products?limit=25');
@@ -19,7 +19,7 @@ export default async function Products() {
   const products = await getData();
 
   return (
-    <main className={styles.mainContent}>
+    <main>
       <h1>Products</h1>
       <ul className={cardStyles.cardList}>
         {products.map((item: Product) => (
