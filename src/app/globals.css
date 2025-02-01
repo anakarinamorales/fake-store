@@ -1,24 +1,31 @@
 /* Light Theme (default in :root) */
 :root {
-  --background-color: #d2d2d2;
-  --foreground-color: #2e2e2e;
-  --primary: #ff298c;
-  --text-color: var(--foreground-color);
+  --color-background: #fff1e5;
+  --color-foreground: #080808;
+
+  --color-primary: #ff298c;
+
+  --color-primary-text: #242121;
+  --color-secondary-text: #404040;
 }
 
 /* Dark Theme */
-html.dark {
-  --background-color: #2e2e2e;
-  --foreground-color: #d2d2d2;
-  --text-color: var(--foreground-color);
+body.dark {
+  --color-background: #080808;
+  --color-foreground: #d2d2d2;
+
+  --color-primary-text: #bbbbbb;
+  --color-secondary-text: #858585;
 
   color-scheme: dark;
 }
 
-html.light {
-  --background-color: #ffffff;
-  --foreground-color: #2e2e2e;
-  --text-color: var(--foreground-color);
+body.light {
+  --color-background: #fff1e5;
+  --color-foreground: #080808;
+
+  --color-primary-text: #242121;
+  --color-secondary-text: #404040;
 
   color-scheme: light;
 }
@@ -32,11 +39,20 @@ body {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--color-background);
+  color: var(--color-secondary-text);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-primary-text);
 }
 
 main {
@@ -58,8 +74,6 @@ a,
 button {
   cursor: pointer;
 }
-
-
 
 @media (min-width: 600px) {
   body {

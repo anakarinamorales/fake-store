@@ -32,12 +32,20 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
-  const theme = cookieStore.get('theme')?.value;
+  const defaultTheme = 'light';
+  const getTheme = async () => {
+    const cookieStore = await cookies();
+    const savedUserTheme = cookieStore.get('theme')?.value;
+
+    return savedUserTheme || defaultTheme;
+  }
+
+  const theme = await getTheme();
+  
   return (
-    <html lang='en' className={theme || 'dark'}>
+    <html lang='en'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} antialiased ${theme}`}
       >
         {children}
       </body>

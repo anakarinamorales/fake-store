@@ -1,8 +1,17 @@
-import { changeTheme } from "@/app/actions";
+'use client';
+import { changeTheme } from '@/app/actions';
 
-export const ThemeToggle = async () => {
+import globalStyles from "@/app/page.module.css";
+
+import styles from "./themeButton.module.css";
+
+export const ThemeToggle = () => {
   return (
-    <button onClick={() => changeTheme()} aria-label='Toggle Theme'>
+    <button
+      className={`${globalStyles.cta} ${styles.themeButton}`}
+      onClick={async () => await changeTheme()}
+      aria-label='Toggle Theme'
+    >
       Change theme
     </button>
   );

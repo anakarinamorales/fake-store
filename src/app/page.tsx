@@ -16,11 +16,11 @@ export default async function Home() {
             height: '100px',
             display: 'block',
             margin: 'auto',
-            background: 'var(--background-color)',
+            background: 'var(--color-background)',
             fontFamily: 'var(--font-raleway-mono), sans-serif',
             padding: '4px',
             borderRadius: '4px',
-            border: '2px dashed var(--foreground-color)',
+            border: '2px dashed var(--color-foreground)',
           }}
         >
           <Logo />

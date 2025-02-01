@@ -10,7 +10,7 @@ export default function Logo() {
     >
       <g>
         <text
-          fill='var(--primary)'
+          fill='var(--color-primary)'
           fillRule='nonzero'
           fontFamily='var(--font-raleway-mono), sans-serif'
           fontSize='200'
@@ -34,7 +34,7 @@ export default function Logo() {
       </g>
       <g>
         <text
-          fill='var(--text-color)'
+          fill='var(--color-primary-text)'
           fillRule='nonzero'
           fontFamily='var(--font-raleway-mono), sans-serif'
           fontSize='105'
