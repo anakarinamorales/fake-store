@@ -5,50 +5,50 @@ import './globals.css';
 import { cookies } from 'next/headers';
 
 const geistSans = localFont({
-  src: 'fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
+    src: 'fonts/GeistVF.woff',
+    variable: '--font-geist-sans',
+    weight: '100 900',
 });
 
 const geistMono = localFont({
-  src: 'fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
+    src: 'fonts/GeistMonoVF.woff',
+    variable: '--font-geist-mono',
+    weight: '100 900',
 });
 
 export const raleway = localFont({
-  src: 'fonts/Raleway.woff',
-  variable: '--font-raleway-mono',
-  weight: '100 700 900',
+    src: 'fonts/Raleway.woff',
+    variable: '--font-raleway-mono',
+    weight: '100 700 900',
 });
 
 export const metadata: Metadata = {
-  title: 'AStore - The store of your dreams',
-  description: 'A store app using fake-store API.',
+    title: 'AStore - The store of your dreams',
+    description: 'A store app using fake-store API.',
 };
 
 export default async function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  const defaultTheme = 'light';
-  const getTheme = async () => {
-    const cookieStore = await cookies();
-    const savedUserTheme = cookieStore.get('theme')?.value;
+    const defaultTheme = 'light';
+    const getTheme = async () => {
+        const cookieStore = await cookies();
+        const savedUserTheme = cookieStore.get('theme')?.value;
 
-    return savedUserTheme || defaultTheme;
-  }
+        return savedUserTheme || defaultTheme;
+    };
 
-  const theme = await getTheme();
-  
-  return (
-    <html lang='en'>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} antialiased ${theme}`}
-      >
-        {children}
-      </body>
-    </html>
-  );
+    const theme = await getTheme();
+
+    return (
+        <html lang="en">
+            <body
+                className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} antialiased ${theme}`}
+            >
+                {children}
+            </body>
+        </html>
+    );
 }

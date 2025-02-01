@@ -1,49 +1,49 @@
 /* Light Theme (default in :root) */
 :root {
-  --color-background: #fff1e5;
-  --color-foreground: #080808;
+    --color-background: #fff1e5;
+    --color-foreground: #080808;
 
-  --color-primary: #ff298c;
+    --color-primary: #ff298c;
 
-  --color-primary-text: #242121;
-  --color-secondary-text: #404040;
+    --color-primary-text: #242121;
+    --color-secondary-text: #404040;
 }
 
 /* Dark Theme */
 body.dark {
-  --color-background: #080808;
-  --color-foreground: #d2d2d2;
+    --color-background: #080808;
+    --color-foreground: #d2d2d2;
 
-  --color-primary-text: #bbbbbb;
-  --color-secondary-text: #858585;
+    --color-primary-text: #bbbbbb;
+    --color-secondary-text: #858585;
 
-  color-scheme: dark;
+    color-scheme: dark;
 }
 
 body.light {
-  --color-background: #fff1e5;
-  --color-foreground: #080808;
+    --color-background: #fff1e5;
+    --color-foreground: #080808;
 
-  --color-primary-text: #242121;
-  --color-secondary-text: #404040;
+    --color-primary-text: #242121;
+    --color-secondary-text: #404040;
 
-  color-scheme: light;
+    color-scheme: light;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  background-color: var(--color-background);
-  color: var(--color-secondary-text);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--color-background);
+    color: var(--color-secondary-text);
+    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 h1,
@@ -52,31 +52,31 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--color-primary-text);
+    color: var(--color-primary-text);
 }
 
 main {
-  padding: 24px;
+    padding: 24px;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 a,
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 @media (min-width: 600px) {
-  body {
-    font-size: 22px;
-  }
+    body {
+        font-size: 22px;
+    }
 }
