@@ -1,7 +1,7 @@
 import { headers } from 'next/headers';
-import { Product } from 'app/products/types';
+import { Product } from '@/app/products/types';
 import Image from 'next/image';
-import styles from 'app/page.module.css';
+import styles from '@/app/page.module.css';
 
 const getProduct = async (productId: number) => {
   const response = await fetch(`https://fakestoreapi.com/products/${productId}`);

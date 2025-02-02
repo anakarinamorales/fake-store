@@ -16,7 +16,7 @@ const geistMono = localFont({
     weight: '100 900',
 });
 
-export const raleway = localFont({
+const raleway = localFont({
     src: 'fonts/Raleway.woff',
     variable: '--font-raleway-mono',
     weight: '100 700 900',
