@@ -31,8 +31,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## 🌎 Environments
 
 -   Local development: [http://localhost:3000](http://localhost:3000)
--   Staging:
--   Production:
+<!-- -   Staging: -->
+-   Production: [https://fake-store-weld.vercel.app/](https://fake-store-weld.vercel.app/)
 
 ## 🛠️ Building the project
 
