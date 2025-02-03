@@ -2,21 +2,10 @@ import { Product } from './types';
 import cardStyles from './page.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
-// import styles from 'app/page.module.css';
-
-const getData = async () => {
-    const response = await fetch('https://fakestoreapi.com/products?limit=25');
-
-    if (!response.ok) {
-        throw new Error('Failed to fetch data');
-    }
-
-    const data = await response.json();
-    return data;
-};
+import { getProducts } from '@/api';
 
 export default async function Products() {
-    const products = await getData();
+    const products = await getProducts();
 
     return (
         <main>
@@ -25,7 +14,7 @@ export default async function Products() {
                 {products.map((item: Product) => (
                     <li className={cardStyles.cardItem} key={item?.id}>
                         <Image
-                            src={item?.image}
+                            src={item?.images?.[0]}
                             width={300}
                             height={340}
                             alt="Product image"
