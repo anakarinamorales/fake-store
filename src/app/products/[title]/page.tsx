@@ -3,7 +3,7 @@ import { Product } from '@/app/products/types';
 import Image from 'next/image';
 import styles from '@/app/page.module.css';
 import { getProduct } from '@/api';
-import { AddToCartButton } from 'components/AddToCartButton';
+import ProductForm from 'components/ProductForm';
 
 export default async function ProductPage() {
     const headerList = headers();
@@ -27,7 +27,7 @@ export default async function ProductPage() {
             <p>{product?.description}</p>
             <span>{product.price}</span>
             <span>{product.category?.name}</span>
-            <AddToCartButton />
+            <ProductForm product={product} />
         </main>
     );
 }

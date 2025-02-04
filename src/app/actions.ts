@@ -1,7 +1,6 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { Product } from './products/types';
 
 export async function changeTheme() {
     const cookieStore = await cookies();
@@ -16,27 +15,66 @@ export async function changeTheme() {
     }
 }
 
-type CartProduct = {
-    id: number,
-    quantity: number,
-    unitPrice: number
-}
-
-type Cart = {
-    products: CartProduct[];
+export type CartItem = {
+    id: number;
+    quantity: number;
+    price: number;
     total: number;
 };
 
-export async function addToCart(product: Product) {
-     const cookieStore = await cookies();
+type Cart = {
+    products: CartItem[];
+    total: number;
+};
 
-     if (!cookieStore?.get('cart')?.value) {
-         cookieStore.set('cart', '');
+export async function addToCart(cartItem: CartItem) {
+    const cookieStore = await cookies();
+
+    // No previous cart available
+    if (!cookieStore?.get('cart')?.value) {
+        console.log('FILLING EMPTY CART!');
+        const cart = { products: [cartItem], total: cartItem.total };
+        cookieStore.set('cart', JSON.stringify(cart));
+        console.log(cookieStore?.get('cart')?.value);
+        return true;
     }
-    
-    console.log(product);
 
-    // const currentCart = cookieStore.get('cart')?.value;
-    // currentCart?.split('')
-    
+    const cookieCart = JSON.parse(
+        cookieStore.get('cart')?.value as string
+    ) as Cart;
+
+    console.log('GOT COOKIE! ', cookieCart);
+
+    const itemIsOnCart = Boolean(
+        cookieCart.products.find((item) => item.id === cartItem.id)?.id
+    );
+
+    if (!itemIsOnCart) {
+        const newCart = cookieCart;
+        console.log('ITEM NOT ON CART!!!');
+        newCart.products.push(cartItem);
+        newCart.total = cookieCart.total + cartItem.total;
+        cookieStore?.set('cart', JSON.stringify(newCart));
+        console.log(cookieStore?.get('cart')?.value);
+        return true;
+    }
+
+    if (itemIsOnCart) {
+        console.log('HAS ITEM ON CART ALREADY!!!');
+        const newCart = cookieCart;
+        const cartItemIndex = newCart.products.findIndex(
+            (item) => item.id === cartItem.id
+        );
+        const previousItemTotal = newCart.products[cartItemIndex].total;
+        const newTotal = newCart.total - previousItemTotal + cartItem.total;
+        newCart.products[cartItemIndex].quantity = cartItem.quantity;
+        newCart.products[cartItemIndex].total = cartItem.total;
+        newCart.total = newTotal;
+
+        cookieStore?.set('cart', JSON.stringify(newCart));
+        console.log(cookieStore?.get('cart')?.value);
+        return true;
+    }
+
+    // CHECK CASE WHERE YOU SET THE ITEM TOTAL TO 0 (REMOVE THE ITEM FROM THE CART THEN)
 }
