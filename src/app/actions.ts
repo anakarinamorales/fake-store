@@ -32,9 +32,11 @@ export async function addToCart(product: Product) {
 
      if (!cookieStore?.get('cart')?.value) {
          cookieStore.set('cart', '');
-     }
+    }
+    
+    console.log(product);
 
-    const currentCart = cookieStore.get('cart')?.value;
-    currentCart?.split('')
+    // const currentCart = cookieStore.get('cart')?.value;
+    // currentCart?.split('')
     
 }
