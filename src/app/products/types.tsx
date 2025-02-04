@@ -1,9 +1,14 @@
+type Category = {
+    id: number | string;
+    image: string;
+    name: string;
+};
+
 export type Product = {
-    category: string;
+    category: Category;
     description: string;
     id: string | number;
-    image: string;
+    images: string[];
     price: string | number;
-    rating: { rate: number;  count: number }
     title: string;
-}
+};
