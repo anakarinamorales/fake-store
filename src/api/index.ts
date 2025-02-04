@@ -11,9 +11,9 @@ export const getProducts = async () => {
     return data;
 };
 
-export const getProduct = async (productId: string | number) => {
+export const getProduct = async (id: string | number) => {
     const response = await fetch(
-        `${process.env.NEXT_PUBLIC_PRODUCTS_URL}/${productId}`
+        `${process.env.NEXT_PUBLIC_PRODUCTS_URL}/${id}`
     );
 
     if (!response.ok) {
