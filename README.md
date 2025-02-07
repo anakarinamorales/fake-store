@@ -11,11 +11,15 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 - [x] Have a list page with all the products listed there as links to a detail page
 - [x] Have a detail page with detailed product info
 - [x] Setup deploy to Vercel so I can have a production environment
+- [x] Add tempalte that includes header and footer to all pages
 - [ ] Have a detailed readme with all the info to run the project
 - [ ] Setup test for dev mode
 - [ ] Setup Husky to wait for tests to pass so then you can commit your changes
 - [ ] Setup PR pipeline to wait for tests to pass so then you can merge your PR
-
+- [ ] Show + and - input on cart & item pages to increase and decrease the quantity of the product
+- [ ] Show initial value of quantity input on product & cart pages as 1 or the current quantity of the product on the cart
+- [ ] Apply accessibility measures for logo in header (hide svg from screen readers, add aria title or something to be read instead).
+- [ ] Make theme toggle accessible to screen readers
 
 ## 🤖 TechSpec
 
