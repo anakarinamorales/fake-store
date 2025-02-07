@@ -3,6 +3,7 @@ import { Product } from '@/app/products/types';
 import Image from 'next/image';
 import styles from '@/app/page.module.css';
 import { getProduct } from '@/api';
+import ProductForm from 'components/ProductForm';
 
 export default async function ProductPage() {
     const headerList = headers();
@@ -12,7 +13,7 @@ export default async function ProductPage() {
         Number(pathname?.split('/products/')[1])
     );
 
-    const productImage = product.images?.[0];
+    const productImage = product.image;
 
     return (
         <main className={styles.mainContent}>
@@ -26,7 +27,7 @@ export default async function ProductPage() {
             <p>{product?.description}</p>
             <span>{product.price}</span>
             <span>{product.category?.name}</span>
-            <button className={styles.cta}>Add to cart</button>
+            <ProductForm product={product} />
         </main>
     );
 }

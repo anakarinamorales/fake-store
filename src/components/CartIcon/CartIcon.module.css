@@ -1,0 +1,19 @@
+.st0,
+.st1 {
+    fill: none;
+    stroke: var(--color-foreground);
+    stroke-width: 17.6762;
+    stroke-miterlimit: 10;
+}
+.st1 {
+    stroke-linecap: round;
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -14px;
+    width: 100px;
+
+}

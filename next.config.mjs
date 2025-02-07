@@ -4,12 +4,20 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'placeimg.com',
+                hostname: 'fakestoreapi.com',
             },
-            {
-                protocol: 'https',
-                hostname: 'i.imgur.com',
-            },
+            // {
+            //     protocol: 'https',
+            //     hostname: 'placeimg.com',
+            // },
+            // {
+            //     protocol: 'https',
+            //     hostname: 'i.imgur.com',
+            // },
+            // {
+            //     protocol: 'https',
+            //     hostname: 'iili.io',
+            // },
         ],
     },
 };

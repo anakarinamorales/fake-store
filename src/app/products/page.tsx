@@ -14,7 +14,7 @@ export default async function Products() {
                 {products.map((item: Product) => (
                     <li className={cardStyles.cardItem} key={item?.id}>
                         <Image
-                            src={item?.images?.[0]}
+                            src={item?.image}
                             width={300}
                             height={340}
                             alt="Product image"

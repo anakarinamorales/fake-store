@@ -7,8 +7,8 @@ type Category = {
 export type Product = {
     category: Category;
     description: string;
-    id: string | number;
-    images: string[];
+    id: number;
+    image: string;
     price: string | number;
     title: string;
 };
