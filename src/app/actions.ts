@@ -25,17 +25,20 @@ export type CartItem = {
 export type Cart = {
     products: CartItem[];
     total: number;
+    totalQtProducts: number;
 };
 
 export async function addToCart(cartItem: CartItem) {
     const cookieStore = await cookies();
 
-    // No previous cart available
-    if (!cookieStore?.get('cart')?.value) {
-        // console.log('FILLING EMPTY CART!');
-        const cart = { products: [cartItem], total: cartItem.total };
+    // No previous cart available and qt set to 1 or more products
+    if (!cookieStore?.get('cart')?.value && cartItem.quantity > 0) {
+        const cart = {
+            products: [cartItem],
+            total: cartItem.total,
+            totalQtProducts: cartItem.quantity,
+        };
         cookieStore.set('cart', JSON.stringify(cart));
-        // console.log(cookieStore?.get('cart')?.value);
         return cart;
     }
 
@@ -43,40 +46,54 @@ export async function addToCart(cartItem: CartItem) {
         cookieStore.get('cart')?.value as string
     ) as Cart;
 
-    // console.log('GOT COOKIE! ', cookieCart);
+    const oldCartItem = cookieCart.products.find(
+        (item) => item.id === cartItem.id
+    ) as CartItem;
 
-    const itemIsOnCart = Boolean(
-        cookieCart.products.find((item) => item.id === cartItem.id)?.id
-    );
+    const itemIsOnCart = Boolean(oldCartItem?.id);
 
-    if (!itemIsOnCart) {
+    if (!itemIsOnCart && cartItem.quantity > 0) {
         const newCart = cookieCart;
-        // console.log('ITEM NOT ON CART!!!');
         newCart.products.push(cartItem);
         newCart.total = cookieCart.total + cartItem.total;
+        newCart.totalQtProducts =
+            cookieCart.totalQtProducts + cartItem.quantity;
+
         cookieStore?.set('cart', JSON.stringify(newCart));
-        // console.log(cookieStore?.get('cart')?.value);
         return newCart;
     }
 
     if (itemIsOnCart) {
-        // console.log('HAS ITEM ON CART ALREADY!!!');
         const newCart = cookieCart;
+
         const cartItemIndex = newCart.products.findIndex(
             (item) => item.id === cartItem.id
         );
-        const previousItemTotal = newCart.products[cartItemIndex].total;
-        const newTotal = newCart.total - previousItemTotal + cartItem.total;
+
+        // TO DO: Make this reusable so I can use on the add/remove button later on
+        // TO DO: Update the logic (dumb mode rn, but working! yay!) so I don't need to check for the quantity === 0
+        if (cartItem.quantity === 0) {
+            const newProducts = cookieCart.products.filter(
+                (item) => item.id !== cartItem.id
+            ); // returns only the items that are not the current one that is set to 0
+            newCart.products = newProducts;
+            newCart.total = newCart.total - cartItem.total;
+            newCart.totalQtProducts =
+                newCart.totalQtProducts - oldCartItem.quantity;
+
+            cookieStore?.set('cart', JSON.stringify(newCart));
+            return newCart;
+        }
+
         newCart.products[cartItemIndex].quantity = cartItem.quantity;
         newCart.products[cartItemIndex].total = cartItem.total;
-        newCart.total = newTotal;
+        newCart.total = newCart.total - oldCartItem.total + cartItem.total;
+        newCart.totalQtProducts =
+            newCart.totalQtProducts - oldCartItem.quantity + cartItem.quantity; // get the current item on the old cart, remove the old qt related to it from the cart, add the new qt;
 
         cookieStore?.set('cart', JSON.stringify(newCart));
-        // console.log(cookieStore?.get('cart')?.value);
         return newCart;
     }
-
-    // CHECK CASE WHERE YOU SET THE ITEM TOTAL TO 0 (REMOVE THE ITEM FROM THE CART THEN)
 }
 
 export async function getCart() {
@@ -85,7 +102,8 @@ export async function getCart() {
 
     // No cart available, return empty cart
     if (!cartCookie?.value) {
-        return { products: [], total: 0 };
+        const emptyCart = { products: [], total: 0, totalQtProducts: 0 };
+        return emptyCart;
     }
 
     return JSON.parse(cartCookie?.value as string) as Cart;

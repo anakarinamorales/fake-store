@@ -8,7 +8,7 @@ export default async function CartIcon() {
     return (
         <Link className={style.container} href="/cart">
             <>
-                {!!cart.products.length && <span>{cart.products.length}</span>}
+                {!!cart.products.length && <span>{cart.totalQtProducts}</span>}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     xmlSpace="preserve"
