@@ -13,7 +13,7 @@ export default async function ProductPage() {
         Number(pathname?.split('/products/')[1])
     );
 
-    const productImage = product.images?.[0];
+    const productImage = product.image;
 
     return (
         <main className={styles.mainContent}>

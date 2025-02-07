@@ -21,7 +21,9 @@ export default function ProductForm({ product }: { product: Product }) {
 
     return (
         <form onSubmit={onSubmit}>
-            <input name="quantity" type="number" />
+            {/* TO DO: Show initial value as 1 or the current quantity of the product on the cart */}
+            <input name="quantity" type="number" min={1} max={100} />
+            {/* TO DO: Show + and - input to increase and decrease the quantity */}
             <button className={styles.cta} type="submit">
                 Add to cart
             </button>

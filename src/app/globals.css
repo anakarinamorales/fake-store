@@ -20,6 +20,7 @@ body.dark {
     color-scheme: dark;
 }
 
+/* Light Theme */
 body.light {
     --color-background: #fff1e5;
     --color-foreground: #080808;
@@ -75,6 +76,32 @@ button {
     cursor: pointer;
 }
 
+/* Button styles */
+.cta {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary-text);
+    display: flex;
+    margin: 0;
+    max-width: 320px;
+    padding: 24px;
+    transition: transform 250ms, background-color 250ms ease;
+}
+
+.cta:hover {
+    border: 1px solid var(--color-primary);
+    transform: translateY(-10px);
+}
+
+html.dark .cta:hover {
+    background-color: transparent;
+}
+
+.cta.center {
+    margin: 24px auto 0;
+}
+
+/* Desktop styles */
 @media (min-width: 600px) {
     body {
         font-size: 22px;
