@@ -77,7 +77,7 @@ export async function addToCart(cartItem: CartItem) {
                 (item) => item.id !== cartItem.id
             ); // returns only the items that are not the current one that is set to 0
             newCart.products = newProducts;
-            newCart.total = newCart.total - cartItem.total;
+            newCart.total = newCart.total - oldCartItem.total;
             newCart.totalQtProducts =
                 newCart.totalQtProducts - oldCartItem.quantity;
 
