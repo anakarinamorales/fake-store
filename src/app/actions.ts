@@ -73,12 +73,10 @@ export async function addToCart(cartItem: CartItem) {
         // TO DO: Make this reusable so I can use on the add/remove button later on
         // TO DO: Update the logic (dumb mode rn, but working! yay!) so I don't need to check for the quantity === 0
         if (cartItem.quantity === 0) {
-            console.log(11111, newCart.total);
             const newProducts = cookieCart.products.filter(
                 (item) => item.id !== cartItem.id
             ); // returns only the items that are not the current one that is set to 0
             newCart.products = newProducts;
-            console.log(22222, `${newCart.total} - ${oldCartItem.total}`);
             newCart.total = newCart.total - oldCartItem.total;
             newCart.totalQtProducts =
                 newCart.totalQtProducts - oldCartItem.quantity;
