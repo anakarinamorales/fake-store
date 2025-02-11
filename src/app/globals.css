@@ -5,60 +5,17 @@
 
     --color-primary: #ff298c;
 
-    --color-white: #ffffff;
-
     --color-primary-text: #242121;
     --color-secondary-text: #404040;
-
-
-    /* Pastel colors - TO DO: change names later or delete if not used */
-    --color-pastel-1: #eeefbf;
-    --color-pastel-2: #d2e8ce;
-    --color-pastel-3: #cfddcd;
-    --color-pastel-4: #c7f0e0;
-    --color-pastel-5: #dff8fb;
-    --color-pastel-6: #e1e9df;
-    --color-pastel-7: #c2c4c6;
-    --color-pastel-8: #dee0e2;
-    --color-pastel-9: #efefef;
-    --color-pastel-10: #ffb0a0;
-    --color-pastel-11: #fcc6cf;
-    --color-pastel-12: #fed2cc;
-    --color-pastel-13: #ffd6a5;
-    --color-pastel-14: #ffdbba;
-    --color-pastel-15: #fcddcd;
-    --color-pastel-16: #dfd8cc;
-    --color-pastel-17: #f2ede1;
-    --color-pastel-18: #c0b9e6;
-    --color-pastel-19: #d2caef;
-    --color-pastel-20: #dad6ec;
-
-    --color-card-background: var(--color-pastel-15);
-    --color-card-border: var(--color-foreground);
-
-    --spacing-2: 2px;
-    --spacing-4: 4px;
-    --spacing-8: 8px;
-    --spacing-10: 10px;
-    --spacing-12: 12px;
-    --spacing-14: 14px;
-    --spacing-18: 18px;
-    --spacing-24: 24px;
-    --spacing-32: 32px;
-    --spacing-58: 58px;
-    
 }
 
 /* Dark Theme */
 body.dark {
-    --color-background: #303030;
+    --color-background: #080808;
     --color-foreground: #d2d2d2;
-        
-    --color-primary-text: #e9dfdf;
-    --color-secondary-text: #d8cecc;
-    
-    --color-card-background: #252525;
-    --color-card-border: var(--color-secondary-text);
+
+    --color-primary-text: #bbbbbb;
+    --color-secondary-text: #858585;
 
     color-scheme: dark;
 }
@@ -70,9 +27,6 @@ body.light {
 
     --color-primary-text: #242121;
     --color-secondary-text: #404040;
-
-    --color-card-background: var(--color-pastel-15);
-    --color-card-border: var(--color-foreground);
 
     color-scheme: light;
 }
@@ -88,12 +42,9 @@ body {
     -webkit-font-smoothing: antialiased;
     background-color: var(--color-background);
     color: var(--color-secondary-text);
-    /* font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif; */
-    font-family: "Din", sans-serif;
-    /* font-family: "Din", sans-serif; */
-    font-size: 24px;
+    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+    font-size: 18px;
     line-height: 1.5;
-    /* text-transform: uppercase; */
 }
 
 h1,
@@ -103,14 +54,10 @@ h4,
 h5,
 h6 {
     color: var(--color-primary-text);
-    text-transform: uppercase;
-    font-family: var(--font-bueno-mono), var(--font-impact-mono), "Din", sans-serif;
-    /* font-family: var(--font-impact-mono), "Din", sans-serif; */
-    font-weight: normal;
 }
 
 main {
-    padding: var(--spacing-24);
+    padding: 24px;
 }
 
 * {
@@ -137,7 +84,7 @@ button {
     display: flex;
     margin: 0;
     max-width: 320px;
-    padding: var(--spacing-24);
+    padding: 24px;
     transition: transform 250ms, background-color 250ms ease;
 }
 
@@ -151,12 +98,12 @@ html.dark .cta:hover {
 }
 
 .cta.center {
-    margin: var(--spacing-24) auto 0;
+    margin: 24px auto 0;
 }
 
 /* Desktop styles */
 @media (min-width: 600px) {
-    /* body {
+    body {
         font-size: 22px;
-    } */
+    }
 }
