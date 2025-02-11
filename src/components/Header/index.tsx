@@ -3,15 +3,15 @@ import { ThemeToggle } from 'components/ThemeButton';
 
 import style from './Header.module.css';
 import Logo from 'components/Logo';
-import NextLink from 'next/link';
+import Link from 'next/link';
 
 export default function Header() {
     return (
         <>
             {/* TO DO: Make it accessible with aria title and hiding the svg logo from screen readers */}
-            <NextLink href="/" className={style.logoLink}>
+            <Link href="/" className={style.logoLink}>
                 <Logo />
-            </NextLink>
+            </Link>
             <header className={style.container}>
                 <ThemeToggle />
                 <CartIcon />
