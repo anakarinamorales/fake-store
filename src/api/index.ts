@@ -1,4 +1,6 @@
-export const getProducts = async () => {
+import { Product } from "@/app/products/types";
+
+export async function getProducts(): Promise<Product[]> {
     const response = await fetch(
         `${process.env.NEXT_PUBLIC_PRODUCTS_URL}?offset=0&limit=10`
     );
@@ -9,9 +11,9 @@ export const getProducts = async () => {
 
     const data = await response.json();
     return data;
-};
+}
 
-export const getProduct = async (id: string | number) => {
+export async function getProduct(id: string | number): Promise<Product> {
     const response = await fetch(
         `${process.env.NEXT_PUBLIC_PRODUCTS_URL}/${id}`
     );
