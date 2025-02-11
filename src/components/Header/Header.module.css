@@ -2,18 +2,18 @@
     align-items: flex-end;
     display: flex;
     justify-content: space-between;
-    padding: var(--spacing-58) var(--spacing-24) var(--spacing-24);
+    padding: 58px 24px 24px;
     position: relative;
 }
 
 .logoLink {
-    border-radius: var(--spacing-4);
-    border: var(--spacing-2) dashed var(--color-foreground);
+    border-radius: 4px;
+    border: 2px dashed var(--color-foreground);
     display: block;
     height: 100px;
     left: 0;
-    margin: var(--spacing-24) auto;
-    padding: var(--spacing-4);
+    margin: 24px auto;
+    padding: 4px;
     position: absolute;
     right: 0;
     width: 100px;

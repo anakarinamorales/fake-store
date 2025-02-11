@@ -1,15 +1,33 @@
 .cardList {
-    align-items: center;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex-wrap: wrap;
-    gap: var(--spacing-24) 0;
+    font-family: var(--font-geist-mono);
     line-height: 1.5;
     list-style-position: inside;
     list-style: none;
     margin: 0;
     padding-left: 0;
+    flex-wrap: wrap;
+    gap: 5em;
+    flex-direction: column;
+}
+
+.cardItem {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    /* cursor: pointer; */
+    position: relative;
+}
+
+.cardLink {
+    &:after {
+        content: '';
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
 }
 
 .productImage {
@@ -21,7 +39,11 @@
 @media (min-width: 768px) {
     .cardList {
         flex-direction: row;
-        gap: var(--spacing-32);
+        gap: 0 14px;
         justify-content: center;
+    }
+
+    .cardItem {
+        flex-basis: 240px;
     }
 }

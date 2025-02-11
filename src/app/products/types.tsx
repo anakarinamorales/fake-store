@@ -1,11 +1,11 @@
-// type Category = {
-//     id: number | string;
-//     image: string;
-//     name: string;
-// };
+type Category = {
+    id: number | string;
+    image: string;
+    name: string;
+};
 
 export type Product = {
-    category: string;
+    category: Category;
     description: string;
     id: number;
     image: string;
