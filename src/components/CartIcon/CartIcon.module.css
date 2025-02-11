@@ -1,9 +1,9 @@
 .st0,
 .st1 {
     fill: none;
-    stroke: var(--color-foreground);
-    stroke-width: 17.6762;
     stroke-miterlimit: 10;
+    stroke-width: 17.6762;
+    stroke: var(--color-foreground);
 }
 .st1 {
     stroke-linecap: round;
@@ -16,4 +16,10 @@
     margin-bottom: -14px;
     width: 100px;
 
+}
+
+/* Hover effect for when the icon is on a link */
+a:hover .st0,
+a:hover .st1 {
+    stroke: var(--color-primary);
 }
