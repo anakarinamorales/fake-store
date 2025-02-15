@@ -1,19 +1,17 @@
-import CartIcon from 'components/CartIcon';
-import { ThemeToggle } from 'components/ThemeButton';
+import CartIcon from 'components/Icons/CartIcon';
 
 import style from './Header.module.css';
 import Logo from 'components/Logo';
-import Link from 'next/link';
+import NextLink from 'next/link';
 
 export default function Header() {
     return (
         <>
             {/* TO DO: Make it accessible with aria title and hiding the svg logo from screen readers */}
-            <Link href="/" className={style.logoLink}>
+            <NextLink href="/" className={style.logoLink}>
                 <Logo />
-            </Link>
+            </NextLink>
             <header className={style.container}>
-                <ThemeToggle />
                 <CartIcon />
             </header>
         </>
