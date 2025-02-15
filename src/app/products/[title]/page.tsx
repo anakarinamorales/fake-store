@@ -26,7 +26,7 @@ export default async function ProductPage() {
             <h1>{product.title}</h1>
             <p>{product?.description}</p>
             <span>{product.price}</span>
-            <span>{product.category?.name}</span>
+            <span>{product.category}</span>
             <ProductForm product={product} />
         </main>
     );
