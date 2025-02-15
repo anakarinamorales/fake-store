@@ -10,7 +10,6 @@
     --color-primary-text: #242121;
     --color-secondary-text: #404040;
 
-
     /* Pastel colors - TO DO: change names later or delete if not used */
     --color-pastel-1: #eeefbf;
     --color-pastel-2: #d2e8ce;
@@ -45,18 +44,18 @@
     --spacing-18: 18px;
     --spacing-24: 24px;
     --spacing-32: 32px;
+    --spacing-52: 52px;
     --spacing-58: 58px;
-    
 }
 
 /* Dark Theme */
 body.dark {
     --color-background: #303030;
     --color-foreground: #d2d2d2;
-        
+
     --color-primary-text: #e9dfdf;
     --color-secondary-text: #d8cecc;
-    
+
     --color-card-background: #252525;
     --color-card-border: var(--color-secondary-text);
 
@@ -89,7 +88,7 @@ body {
     background-color: var(--color-background);
     color: var(--color-secondary-text);
     /* font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif; */
-    font-family: "Din", sans-serif;
+    font-family: 'Din', sans-serif;
     /* font-family: "Din", sans-serif; */
     font-size: 24px;
     line-height: 1.5;
@@ -104,7 +103,8 @@ h5,
 h6 {
     color: var(--color-primary-text);
     text-transform: uppercase;
-    font-family: var(--font-bueno-mono), var(--font-impact-mono), "Din", sans-serif;
+    font-family: var(--font-bueno-mono), var(--font-impact-mono), 'Din',
+        sans-serif;
     /* font-family: var(--font-impact-mono), "Din", sans-serif; */
     font-weight: normal;
 }
@@ -130,6 +130,10 @@ button {
 }
 
 /* Button styles */
+.animatedButton {
+    transition: transform 250ms, background-color 250ms ease;
+}
+
 .cta {
     background-color: var(--color-background);
     border: 1px solid var(--color-primary);
@@ -138,12 +142,10 @@ button {
     margin: 0;
     max-width: 320px;
     padding: var(--spacing-24);
-    transition: transform 250ms, background-color 250ms ease;
 }
 
 .cta:hover {
     border: 1px solid var(--color-primary);
-    transform: translateY(-10px);
 }
 
 html.dark .cta:hover {
@@ -155,8 +157,9 @@ html.dark .cta:hover {
 }
 
 /* Desktop styles */
-@media (min-width: 600px) {
-    /* body {
-        font-size: 22px;
-    } */
+@media only screen and (min-width: 1200px) {
+    /* Animating buttons only on desktop  */
+    .animatedButton:hover {
+        transform: translateY(-10px);
+    }
 }

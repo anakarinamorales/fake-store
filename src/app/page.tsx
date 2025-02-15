@@ -17,7 +17,7 @@ export default async function Home() {
                     deserunt mollit anim id est laborum.
                 </p>
 
-                <a className="cta center" href="/products">
+                <a className="animatedButton cta center" href="/products">
                     Check out our products
                 </a>
             </article>
@@ -34,7 +34,7 @@ export default async function Home() {
                     deserunt mollit anim id est laborum.
                 </p>
 
-                <a className="cta center" href="/products">
+                <a className="animatedButton cta center" href="/products">
                     Check out our products
                 </a>
             </article>

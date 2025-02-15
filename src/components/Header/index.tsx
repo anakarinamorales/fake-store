@@ -1,5 +1,4 @@
-import CartIcon from 'components/CartIcon';
-import { ThemeToggle } from 'components/ThemeButton';
+import CartIcon from 'components/Icons/CartIcon';
 
 import style from './Header.module.css';
 import Logo from 'components/Logo';
@@ -13,7 +12,6 @@ export default function Header() {
                 <Logo />
             </NextLink>
             <header className={style.container}>
-                <ThemeToggle />
                 <CartIcon />
             </header>
         </>

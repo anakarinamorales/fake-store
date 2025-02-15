@@ -5,6 +5,7 @@ import './globals.css';
 import { cookies } from 'next/headers';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import { ThemeToggle } from 'components/ThemeButton';
 
 // const geistSans = localFont({
 //     src: 'fonts/GeistVF.woff',
@@ -89,6 +90,7 @@ export default async function RootLayout({
             >
                 <Header />
                 {children}
+                <ThemeToggle />
                 <Footer />
             </body>
         </html>

@@ -1,3 +1,42 @@
 .themeButton {
-    margin: var(--spacing-24) var(--spacing-24) 0 auto;
+    align-items: center;
+    background-color: var(--color-foreground);
+    border-radius: 50%;
+    border: var(--spacing-2) solid var(--color-background);
+    bottom: var(--spacing-24);
+    display: flex;
+    height: var(--spacing-52);
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    right: var(--spacing-24);
+    width: var(--spacing-52);
+}
+
+.themeButton svg {
+    width: var(--spacing-24);
+}
+
+.themeButton path {
+    fill: var(--color-background);
+}
+
+.themeButton:hover,
+.themeButton:focus,
+.themeButton:focus-visible {
+    border: var(--spacing-4) solid var(--color-primary);
+    outline: none;
+}
+
+.themeButton:hover svg,
+.themeButton:focus svg,
+.themeButton:focus-visible svg {
+    fill: var(--color-primary);
+}
+
+.themeButton:hover path,
+.themeButton:focus path,
+.themeButton:focus-visible path {
+    fill: var(--color-primary);
 }
