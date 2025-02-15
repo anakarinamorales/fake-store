@@ -7,31 +7,20 @@ import SunIcon from 'components/Icons/Sun';
 import { useEffect, useState } from 'react';
 
 export const ThemeToggle = () => {
-    const [theme, setTheme] = useState(() => {
-        const bodyClassList = document?.querySelector('body')?.classList;
-        const bodyTheme = bodyClassList?.[bodyClassList.length - 1];
-        return bodyTheme;
-    });
-
-    const [themeIcon, setThemeIcon] = useState(() =>
-        theme === 'dark' ? <SunIcon /> : <MoonIcon />
-    );
+    const [theme, setTheme] = useState<string | null>(null); // Start as `null`
+    const [themeIcon, setThemeIcon] = useState<JSX.Element | null>(null);
 
     useEffect(() => {
         const bodyClassList = document.querySelector('body')?.classList;
-        const bodyTheme = bodyClassList?.[bodyClassList.length - 1];
-        if (theme !== bodyTheme) {
-            setTheme(bodyTheme);
+        const bodyTheme = bodyClassList?.[bodyClassList.length - 1] || 'light';
+        setTheme(bodyTheme);
+    }, []);
+
+    useEffect(() => {
+        if (theme) {
+            setThemeIcon(theme === 'dark' ? <SunIcon /> : <MoonIcon />);
         }
     }, [theme]);
-
-    useEffect(() => {
-        const bodyClassList = document.querySelector('body')?.classList;
-        const bodyTheme = bodyClassList?.[bodyClassList.length - 1];
-        console.log(theme, bodyTheme);
-            setThemeIcon(theme === 'dark' ? <SunIcon /> : <MoonIcon />);
-    }, [theme]);
-
 
     return (
         <button
